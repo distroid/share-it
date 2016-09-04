@@ -155,7 +155,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
 
         script      = document.createElement("script");
         script.type = 'text/javascript';
-        script.src  = window.location.origin + js_path;
+        script.src  = window.location.origin + url_prefix + js_path;
 
         link     = document.createElement("link");
         link.rel = 'stylesheet';
@@ -163,7 +163,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
         if ($scope.sharing.button_theme !== 'default') {
             filename += "-" + $scope.sharing.button_theme;
         }
-        link.href = window.location.origin + css_path + filename + ".css";
+        link.href = window.location.origin + url_prefix + css_path + filename + ".css";
 
         button_block_code.innerHTML += '\n';
 
