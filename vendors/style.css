@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Satisfy";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Satisfy"), url("fonts/Satisfy-Regular.ttf") format("woff");
+}
+
+@media (min-width: 800px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+.form-horizontal .control-label {
+  text-align: left !important;
+}
+.preview-buttons {
+  padding: 30px;
+  border: 2px solid #d9edf7;
+  margin-bottom: 30px;
+}
+.preview-header {
+  padding: 20px;
+  margin: 0px;
+}
+.social-media { padding: 0px 15px 0px 0px; }
+.social-media label { line-height: 1px; }
+
+.CodeMirror {
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  font-family: monospace;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+a {outline: none !important;}
+.tab-content {margin-top: 25px;}
+
+#page-body .header-info {
+  background-color: #1ab394;
+  color: #ffffff;
+  font-family: "Satisfy","Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  transition: all .4s ease;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+#page-body .header-info .h1, #page-body .header-info h1 {
+  font-size: 60px;
+}
+
+.main-block { padding-top: 20px; }
+.title { font-family: "Satisfy","Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+.hr-line-dashed {
+  background-color: #ffffff;
+  border-top: 1px dashed #e7eaec;
+  color: #ffffff;
+  height: 1px;
+  margin: 20px 0;
+}
+
+#page-body .page-header { margin: 0px; }
+
+.site-footer { padding-bottom: 2rem; }
+
+#page-body input[type="radio"] { margin-top: 4px; }
+#page-body input[type="checkbox"] { margin-top: -1px; }
+#page-body .settings input[type="checkbox"] { margin-top: 3px; }
+#page-body .project-name {
+    font-size: 4.25rem;
+    font-weight: bold;
+}
