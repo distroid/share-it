@@ -198,8 +198,8 @@ window.ShareIt = class ShareIt
 
     baseUrl = services[type]['url']
     baseUrl = baseUrl.replace('{{url}}', url) if url?
-    baseUrl = baseUrl.replace('{{title}}', title) if title?
-    baseUrl = baseUrl.replace('{{description}}', description) if description?
+    baseUrl = baseUrl.replace('{{title}}', encodeURIComponent(title)) if title?
+    baseUrl = baseUrl.replace('{{description}}', encodeURIComponent(description)) if description?
 
     # Add params to sharing url
     params = []
