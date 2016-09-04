@@ -37,7 +37,7 @@ window.ShareIt = class ShareIt
 
     'facebook':
       'url'         : 'https://www.facebook.com/sharer/sharer.php?u={{url}}&title={{title}}'
-      'counter_url' : 'http://graph.facebook.com/?id={{url}}'
+      'counter_url' : 'https://graph.facebook.com/?id={{url}}'
       'type'        : 'ajax'
       'title'       : 'Facebook'
       'attributes'  : ['title', 'text']
@@ -50,7 +50,7 @@ window.ShareIt = class ShareIt
 
     'twitter':
       'url'         : 'https://twitter.com/intent/tweet?url={{url}}&text={{title}}'
-      'counter_url' : 'http://opensharecount.com/count.json?url={{url}}'
+      'counter_url' : 'https://opensharecount.com/count.json?url={{url}}'
       'counter'     : 0
       'type'        : 'ajax'
       'title'       : 'Twitter'
