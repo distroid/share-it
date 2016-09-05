@@ -1,6 +1,6 @@
 # Share It
 
-Share It -- Simple JS library for create sharing buttons with counters. The JavaScript library is written **without using JQuery** or any other tools / frameworks.
+Share It — Simple JS library for create sharing buttons with counters. The JavaScript library is written **without using JQuery** or any other tools / frameworks.
 
 How supported:
 
@@ -13,8 +13,36 @@ How supported:
 
 You can see online demo - [https://distroid.github.io/share-it/](https://distroid.github.io/share-it/)
 
-### Options
-----------
+## Usage
+
+Add HTML code to your page
+
+```html
+<div data-url="https://github.com/" class="share-it-buttons">
+  <div class="vkontakte"></div>
+  <div class="linkedin"></div>
+  <div class="facebook"></div>
+  <div class="twitter"></div>
+  <div class="google-plus"></div>
+  <div data-media="https://code-bit.com/social.png" class="pinterest"></div>
+</div>
+```
+
+You can init widget by two ways:
+
+1. Include JS script to footer your page or after widget code, widget will generate automatically.
+2. Include JS script on `<HEAD>` with other scripts and for init widget use constructor.
+```javascript
+<script type="text/javascript">
+    new window.ShareIt()
+</script>
+```
+
+Widget theme — Minimal color
+
+![enter image description here](https://code-bit.com/social.png)
+
+## Options
 
 For add parameters to widget need add attrubute `data-<parameter>`
 
@@ -95,26 +123,11 @@ Parameter     | Values        | Description
 `media`       | string        | Url to image  (***requred***)
 `description` | string        | Post text
 
+## Contributions
 
-### Example
-----------
-
-This code will generate widget
-```
-<div data-url="https://github.com/" class="share-it-buttons">
-  <div class="vkontakte"></div>
-  <div class="linkedin"></div>
-  <div class="facebook"></div>
-  <div class="twitter"></div>
-  <div class="google-plus"></div>
-  <div data-media="https://code-bit.com/social.png" class="pinterest"></div>
-</div>
-```
-
-![enter image description here](https://code-bit.com/social.png)
-
-### Contributing to a Project
-----------
+1. Fork the project
+2. Make your feature addition or bug fix
+3. Send me a pull request on Github
 
 For compilation in root folder use command:
 
@@ -124,4 +137,6 @@ And for create min JS files:
 
 `gulp all`
 
+## License
 
+Share-It is released under the [MIT License](http://www.opensource.org/licenses/MIT).
