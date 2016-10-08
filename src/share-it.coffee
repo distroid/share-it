@@ -11,6 +11,7 @@ window.ShareIt = class ShareIt
     'counters'     : true,
     'titles'       : true,
     'button_title' : 'Share to '
+    'scheme'       : window.location.protocol.replace(':', '')
 
   window.VK = {} unless window.VK?
   window.VK.Share =
@@ -99,7 +100,7 @@ window.ShareIt = class ShareIt
 
     'mailru':
       'url'           : 'https://connect.mail.ru/share?url={{url}}&title={{title}}&description={{description}}'
-      'counter_url'   : 'http://connect.mail.ru/share_count?callback=1&url_list={{url}}'
+      'counter_url'   : "#{options.scheme}://connect.mail.ru/share_count?callback=1&url_list={{url}}"
       'counter'       : 0
       'title'         : 'Mail.ru'
       'callback_param': 'func'
