@@ -10,6 +10,7 @@ How supported:
  - Google Plus
  - Twitter
  - Pinterest
+ - Mail.ru
 
 You can see online demo - [https://distroid.github.io/share-it/](https://distroid.github.io/share-it/)
 
@@ -24,6 +25,7 @@ Add HTML code to your page
   <div class="facebook"></div>
   <div class="twitter"></div>
   <div class="google-plus"></div>
+  <div class="mailru"></div>
   <div data-media="https://code-bit.com/social.png" class="pinterest"></div>
 </div>
 ```
@@ -97,7 +99,9 @@ Parameter     | Values        | Description
 
 #### Google Plus
 
-* url
+Parameter     | Values        | Description
+--------------|:--------------|:------------------
+`url`         | string        | Page url for share
 
 [See more](https://developers.google.com/+/plugins/share/#sharelink) in official documentation.
 
@@ -123,6 +127,20 @@ Parameter     | Values        | Description
 `media`       | string        | Url to image  (***requred***)
 `description` | string        | Post text
 
+#### Mail.ru
+
+Parameter     | Values        | Description
+--------------|:--------------|:------------------
+`url`         | string        | Page url for share
+`title`       | string        | Post title
+`description` | string        | Post text
+`image_url`   | string        | Url to image
+`swfurl`      | string        | Url to Flash-movie
+`width`       | string        | Video width
+`height`      | string        | Video height
+
+[See more](http://api.mail.ru/sites/plugins/share/extended/) in official documentation.
+
 ## Contributions
 
 1. Fork the project
@@ -135,7 +153,7 @@ For compilation in root folder use command:
 
 And for create min JS files:
 
-`gulp all`
+`gulp watch`
 
 ## License
 

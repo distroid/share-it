@@ -1,6 +1,6 @@
 {
   "name": "share-it",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple JS library to create share buttons",
   "main": "lib/share-it.min.js",
   "dependencies": {
@@ -26,7 +26,7 @@
     "buttons"
   ],
   "author": "Ruslan Ryabov <github.com/distroid>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/distroid/share-it/issues"
   },
