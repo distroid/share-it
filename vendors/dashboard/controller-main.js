@@ -44,6 +44,13 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 'active_tab' : false,
                 'options'    : {},
             },
+            'mailru': {
+                'domain'     : 'mail.ru',
+                'title'      : 'Mail.ru',
+                'selected'   : true,
+                'active_tab' : false,
+                'options'    : {},
+            },
         },
         'options': {
             'url'      : '',
@@ -80,6 +87,11 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 'title' : {'value': '', 'title': 'Page title', 'placeholder': 'The title of the page for a button'},
                 'text'  : {'value': '', 'title': 'Button text', 'placeholder': 'It replaces the default button text'},
                 'media' : {'value': '', 'title': 'Photo url', 'placeholder': 'The url for image (required field)'},
+            },
+            'mailru' : {
+                'title'       : {'value': '', 'title': 'Page title', 'placeholder': 'The title of the page for a button'},
+                'description' : {'value': '', 'title': 'Description', 'placeholder': 'It replaces the default description text'},
+                'image_url'   : {'value': '', 'title': 'Photo url', 'placeholder': 'The url for image'},
             },
         },
         'block_options'   : {},
