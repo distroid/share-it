@@ -42,7 +42,7 @@ You can init widget by two ways:
 
 Widget theme — Minimal color
 
-![enter image description here](https://code-bit.com/social.png)
+![enter image description here](https://code-bit.com/social.png?v=1.0.1)
 
 ## Options
 
