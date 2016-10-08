@@ -97,6 +97,14 @@ window.ShareIt = class ShareIt
       'title'       : 'Pinterest'
       'attributes'  : ['title', 'text']
 
+    'mailru':
+      'url'           : 'https://connect.mail.ru/share?url={{url}}&title={{title}}&description={{description}}'
+      'counter_url'   : 'http://connect.mail.ru/share_count?callback=1&url_list={{url}}'
+      'counter'       : 0
+      'title'         : 'Mail.ru'
+      'callback_param': 'func'
+      'attributes'    : ['title', 'text', 'description']
+
   # Init methods for ajax
   ajax   = {}
   ajax.x = () ->
@@ -231,12 +239,15 @@ window.ShareIt = class ShareIt
     element.setAttribute('id', "#{type}-button-#{window.sharingButtons[type]}")
 
     # generate callback
-    generateCallbackScript(type, window.sharingButtons[type]) if type != 'vkontakte'
+    generateCallbackScript(type, window.sharingButtons[type], url) if type != 'vkontakte'
 
     script      = document.createElement('script')
     script.type = 'text/javascript'
     script.id   = "#{type}-#{window.sharingButtons[type]}-init-script"
-    script.setAttribute('src', counterUrl + "&callback=#{type}_#{window.sharingButtons[type]}_callback")
+
+    param = if services[type]['callback_param']? then services[type]['callback_param'] else 'callback'
+
+    script.setAttribute('src', "#{counterUrl}&#{param}=#{type}_#{window.sharingButtons[type]}_callback")
     element.appendChild(script)
 
   # Generate button counter
@@ -248,12 +259,14 @@ window.ShareIt = class ShareIt
     element.appendChild(counter)
 
   # Generate callback for get sharing count
-  generateCallbackScript = (type, number) ->
+  generateCallbackScript = (type, number, url) ->
     script      = document.createElement('script')
     script.type = 'text/javascript'
     script.id   = "#{type}-#{number}-script"
     code        = [
       "function #{type}_#{number}_callback(data) {",
+      "if (typeof data['#{url}'] != 'undefined' && typeof data['#{url}']['shares'] != 'undefined')"
+      "{ data.count = data['#{url}']['shares']; }"
       "if (typeof data.count != 'undefined' && data.count > 0) {",
       "var counter = document.createElement('span'); counter.className = 'sharing-couter';",
       "counter.appendChild(document.createTextNode(data.count));",
