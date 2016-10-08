@@ -51,6 +51,13 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 'active_tab' : false,
                 'options'    : {},
             },
+            'odnoklassniki': {
+                'domain'     : 'ok.ru',
+                'title'      : 'Ok.ru',
+                'selected'   : true,
+                'active_tab' : false,
+                'options'    : {},
+            },
         },
         'options': {
             'url'      : '',
@@ -92,6 +99,11 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 'title'       : {'value': '', 'title': 'Page title', 'placeholder': 'The title of the page for a button'},
                 'description' : {'value': '', 'title': 'Description', 'placeholder': 'It replaces the default description text'},
                 'image_url'   : {'value': '', 'title': 'Photo url', 'placeholder': 'The url for image'},
+            },
+            'odnoklassniki' : {
+                'title' : {'value': '', 'title': 'Page title', 'placeholder': 'The title of the page for a button'},
+                'text'  : {'value': '', 'title': 'Button text', 'placeholder': 'It replaces the default button text'},
+                'description' : {'value': '', 'title': 'Description', 'placeholder': 'It replaces the default description text'},
             },
         },
         'block_options'   : {},
@@ -167,7 +179,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
 
         script      = document.createElement("script");
         script.type = 'text/javascript';
-        script.src  = window.location.origin + url_prefix + js_path;
+        script.src  = assets_url + js_path;
 
         link     = document.createElement("link");
         link.rel = 'stylesheet';
@@ -175,7 +187,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
         if ($scope.sharing.button_theme !== 'default') {
             filename += "-" + $scope.sharing.button_theme;
         }
-        link.href = window.location.origin + url_prefix + css_path + filename + ".css";
+        link.href = assets_url + css_path + filename + ".css";
 
         button_block_code.innerHTML += '\n';
 
@@ -245,7 +257,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
         style.removeAttribute("id");
 
         element      = document.createElement("link");
-        element.href = "." + css_path + filename + ".css";
+        element.href = css_url + filename + ".css";
         element.id   = "button_styles";
         element.rel  = "stylesheet";
         base = document.getElementsByTagName("head");

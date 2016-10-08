@@ -13,15 +13,16 @@
 
   <link rel="stylesheet" href="./assets/min-vendor.css" />
   <link rel="stylesheet" type="text/css" href="./assets/normalize.css" media="screen">
-  <link href="./assets/styles.css" rel="stylesheet" type="text/css">
+  <link href="https://rawgit.com/distroid/share-it/master/lib/themes/style.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="./assets/stylesheet.css" media="screen">
   <link rel="stylesheet" type="text/css" href="./assets/github-light.css" media="screen">
-  <link rel="stylesheet" id="button_styles" href="./assets/style.css" />
+  <link rel="stylesheet" id="button_styles" href="./assets/styles.css" />
 
   <script type="text/javascript">
-    var url_prefix = '/share-it'
-    var js_path    = '/assets/share-it.min.js';
-    var css_path   = '/assets/';
+    var assets_url = 'https://rawgit.com/distroid/share-it/master/lib'
+    var js_path    = '/share-it.min.js';
+    var css_path   = '/themes/';
+    var css_url   = 'https://rawgit.com/distroid/share-it/master/lib/themes/';
   </script>
 </head>
 <body id="page-body">
@@ -52,13 +53,14 @@
 
       <div class="center-block text-center preview-buttons">
         <div class="share-it-buttons" attribute-add="sharing.block_options">
-          <div class="vkontakte"   ng-if="sharing.media['vkontakte'].selected"   attribute-add="sharing.media['vkontakte'].options"></div>
-          <div class="linkedin"    ng-if="sharing.media['linkedin'].selected"    attribute-add="sharing.media['linkedin'].options"></div>
-          <div class="facebook"    ng-if="sharing.media['facebook'].selected"    attribute-add="sharing.media['facebook'].options"></div>
-          <div class="twitter"     ng-if="sharing.media['twitter'].selected"     attribute-add="sharing.media['twitter'].options"></div>
-          <div class="google-plus" ng-if="sharing.media['google-plus'].selected" attribute-add="sharing.media['google-plus'].options"></div>
-          <div class="pinterest"   ng-if="sharing.media['pinterest'].selected"   attribute-add="sharing.media['pinterest'].options"></div>
-          <div class="mailru"      ng-if="sharing.media['mailru'].selected"      attribute-add="sharing.media['mailru'].options"></div>
+          <div class="vkontakte"     ng-if="sharing.media['vkontakte'].selected"     attribute-add="sharing.media['vkontakte'].options"></div>
+          <div class="linkedin"      ng-if="sharing.media['linkedin'].selected"      attribute-add="sharing.media['linkedin'].options"></div>
+          <div class="facebook"      ng-if="sharing.media['facebook'].selected"      attribute-add="sharing.media['facebook'].options"></div>
+          <div class="twitter"       ng-if="sharing.media['twitter'].selected"       attribute-add="sharing.media['twitter'].options"></div>
+          <div class="google-plus"   ng-if="sharing.media['google-plus'].selected"   attribute-add="sharing.media['google-plus'].options"></div>
+          <div class="pinterest"     ng-if="sharing.media['pinterest'].selected"     attribute-add="sharing.media['pinterest'].options"></div>
+          <div class="mailru"        ng-if="sharing.media['mailru'].selected"        attribute-add="sharing.media['mailru'].options"></div>
+          <div class="odnoklassniki" ng-if="sharing.media['odnoklassniki'].selected" attribute-add="sharing.media['odnoklassniki'].options"></div>
         </div>
       </div>
 
