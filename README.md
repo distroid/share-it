@@ -11,6 +11,7 @@ How supported:
  - Twitter
  - Pinterest
  - Mail.ru
+ - Odnoklassniki
 
 You can see online demo - [https://distroid.github.io/share-it/](https://distroid.github.io/share-it/)
 
@@ -26,6 +27,7 @@ Add HTML code to your page
   <div class="twitter"></div>
   <div class="google-plus"></div>
   <div class="mailru"></div>
+  <div class="odnoklassniki"></div>
   <div data-media="https://code-bit.com/social.png" class="pinterest"></div>
 </div>
 ```
@@ -42,7 +44,7 @@ You can init widget by two ways:
 
 Widget theme — Minimal color
 
-![enter image description here](https://code-bit.com/social.png?v=1.0.1)
+![enter image description here](https://code-bit.com/social.png?v=1.0.2)
 
 ## Options
 
@@ -140,6 +142,14 @@ Parameter     | Values        | Description
 `height`      | string        | Video height
 
 [See more](http://api.mail.ru/sites/plugins/share/extended/) in official documentation.
+
+#### Odnoklassniki
+
+Parameter     | Values        | Description
+--------------|:--------------|:------------------
+`url`         | string        | Page url for share
+`title`       | string        | Post title
+`description` | string        | Post text
 
 ## Contributions
 

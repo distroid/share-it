@@ -20,6 +20,12 @@ window.ShareIt = class ShareIt
       script.remove() if script?
       createButtonCounter(document.getElementById("vkontakte-button-#{idx}"), number)
 
+  window.ODKL =
+    updateCount: (idx, number) ->
+      script = document.getElementById("odnoklassniki-#{idx}-init-script");
+      script.remove() if script?
+      createButtonCounter(document.getElementById("odnoklassniki-button-#{idx}"), number)
+
   # Supported services
   services =
     'linkedin':
@@ -30,11 +36,12 @@ window.ShareIt = class ShareIt
       'attributes'  : ['title', 'text', 'description']
 
     'vkontakte':
-      'url'         : 'https://vk.com/share.php?url={{url}}&title={{title}}'
-      'counter_url' : 'https://vk.com/share.php?url={{url}}&act=count&index={{index}}'
-      'counter'     : 0
-      'title'       : 'ВКонтакте'
-      'attributes'  : ['title', 'text']
+      'url'              : 'https://vk.com/share.php?url={{url}}&title={{title}}'
+      'counter_url'      : 'https://vk.com/share.php?url={{url}}&act=count&index={{index}}'
+      'counter'          : 0
+      'title'            : 'ВКонтакте'
+      'attributes'       : ['title', 'text']
+      'skip_gen_callback': true
 
     'facebook':
       'url'         : 'https://www.facebook.com/sharer/sharer.php?u={{url}}&title={{title}}'
@@ -106,6 +113,14 @@ window.ShareIt = class ShareIt
       'callback_param': 'func'
       'attributes'    : ['title', 'text', 'description']
 
+    'odnoklassniki':
+      'url'              : 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl={{url}}&st.title={{title}}&st.description={{description}}'
+      'counter_url'      : "#{options.scheme}://connect.ok.ru/dk?st.cmd=extLike&ref={{url}}&uid={{index}}"
+      'counter'          : 0
+      'title'            : 'Odnoklassniki'
+      'attributes'       : ['title', 'text']
+      'skip_gen_callback': true
+
   # Init methods for ajax
   ajax   = {}
   ajax.x = () ->
@@ -127,7 +142,6 @@ window.ShareIt = class ShareIt
     return xhr
 
   ajax.send = (url, callback, method, data, sync, params) ->
-    console.log url
     x = ajax.x()
     x.open(method, url, sync)
     x.onreadystatechange = () ->
@@ -240,7 +254,8 @@ window.ShareIt = class ShareIt
     element.setAttribute('id', "#{type}-button-#{window.sharingButtons[type]}")
 
     # generate callback
-    generateCallbackScript(type, window.sharingButtons[type], url) if type != 'vkontakte'
+    unless services[type]['skip_gen_callback']? && services[type]['skip_gen_callback']
+      generateCallbackScript(type, window.sharingButtons[type], url)
 
     script      = document.createElement('script')
     script.type = 'text/javascript'
