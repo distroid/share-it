@@ -122,7 +122,7 @@ window.ShareIt = class ShareIt
 
     'tumblr':
       'url'              : 'http://tumblr.com/widgets/share/tool?canonicalUrl={{url}}&title={{title}}'
-      'counter_url'      : "http://api.tumblr.com/v2/share/stats?url={{url}}"
+      'counter_url'      : "#{options.scheme}://api.tumblr.com/v2/share/stats?url={{url}}"
       'counter'          : 0
       'title'            : 'Tumblr'
       'attributes'       : ['title', 'text']
