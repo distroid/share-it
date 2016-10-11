@@ -12,6 +12,7 @@ How supported:
  - Pinterest
  - Mail.ru
  - Odnoklassniki
+ - Tumblr
 
 You can see online demo - [https://distroid.github.io/share-it/](https://distroid.github.io/share-it/)
 
@@ -44,7 +45,7 @@ You can init widget by two ways:
 
 Widget theme — Minimal color
 
-![enter image description here](https://code-bit.com/social.png?v=1.0.2)
+![enter image description here](https://code-bit.com/social.png?v=1.0.3)
 
 ## Options
 
@@ -150,6 +151,15 @@ Parameter     | Values        | Description
 `url`         | string        | Page url for share
 `title`       | string        | Post title
 `description` | string        | Post text
+
+#### Tumblr
+
+Parameter     | Values        | Description
+--------------|:--------------|:------------------
+`url`         | string        | Page url for share
+`title`       | string        | Post title
+
+[See more](https://www.tumblr.com/docs/en/share_button) in official documentation.
 
 ## Contributions
 

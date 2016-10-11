@@ -78,7 +78,6 @@ window.ShareIt = class ShareIt
       'title'       : 'Google+'
       'attributes'  : ['title', 'text']
       'getter' : (type, element, counterUrl, url) ->
-        window.sharingButtons[type]++
         params =
           'method'     : 'pos.plusones.get',
           'id'         : "#{type}-button-#{window.sharingButtons[type]}",
@@ -120,6 +119,13 @@ window.ShareIt = class ShareIt
       'title'            : 'Odnoklassniki'
       'attributes'       : ['title', 'text']
       'skip_gen_callback': true
+
+    'tumblr':
+      'url'              : 'http://tumblr.com/widgets/share/tool?canonicalUrl={{url}}&title={{title}}'
+      'counter_url'      : "http://api.tumblr.com/v2/share/stats?url={{url}}"
+      'counter'          : 0
+      'title'            : 'Tumblr'
+      'attributes'       : ['title', 'text']
 
   # Init methods for ajax
   ajax   = {}
@@ -242,6 +248,7 @@ window.ShareIt = class ShareIt
     counterUrl = services[type]['counter_url']
     counterUrl = counterUrl.replace('{{url}}', encodeURIComponent(url)) if url?
 
+    window.sharingButtons[type]++
     if services[type]['type']? && services[type]['type'] == 'ajax'
       services[type]['getter'](type, element, counterUrl, url)
     else
@@ -249,7 +256,6 @@ window.ShareIt = class ShareIt
 
   # Create script for get sharing count
   createScript: (type, element, counterUrl, url) ->
-    window.sharingButtons[type]++
     counterUrl = counterUrl.replace('{{index}}', window.sharingButtons[type])
     element.setAttribute('id', "#{type}-button-#{window.sharingButtons[type]}")
 
@@ -281,6 +287,8 @@ window.ShareIt = class ShareIt
     script.id   = "#{type}-#{number}-script"
     code        = [
       "function #{type}_#{number}_callback(data) {",
+      "if (typeof data.response != 'undefined' && typeof data.response.note_count != 'undefined')"
+      "{ data.count = data.response.note_count; }"
       "if (typeof data['#{url}'] != 'undefined' && typeof data['#{url}']['shares'] != 'undefined')"
       "{ data.count = data['#{url}']['shares']; }"
       "if (typeof data.count != 'undefined' && data.count > 0) {",
