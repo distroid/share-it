@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="./assets/min-vendor.css" />
   <link rel="stylesheet" type="text/css" href="./assets/normalize.css" media="screen">
-  <link href="https://rawgit.com/distroid/share-it/master/lib/themes/style.css" rel="stylesheet" id="button_styles" type="text/css">
+  <link href="https://rawgit.com/distroid/share-it/master/lib/themes/style-minimal-color.css" rel="stylesheet" id="button_styles" type="text/css">
   <link rel="stylesheet" type="text/css" href="./assets/stylesheet.css" media="screen">
   <link rel="stylesheet" type="text/css" href="./assets/github-light.css" media="screen">
   <link rel="stylesheet" href="./assets/styles.css" />
@@ -61,6 +61,7 @@
           <div class="pinterest"     ng-if="sharing.media['pinterest'].selected"     attribute-add="sharing.media['pinterest'].options"></div>
           <div class="mailru"        ng-if="sharing.media['mailru'].selected"        attribute-add="sharing.media['mailru'].options"></div>
           <div class="odnoklassniki" ng-if="sharing.media['odnoklassniki'].selected" attribute-add="sharing.media['odnoklassniki'].options"></div>
+          <div class="tumblr"        ng-if="sharing.media['tumblr'].selected"        attribute-add="sharing.media['tumblr'].options"></div>
         </div>
       </div>
 
@@ -72,7 +73,7 @@
             <div class="checkbox">
               <label style="white-space: nowrap">
                 <input type="checkbox" ng-model="::media.selected" ng-click="selected_media(media.selected)"/>
-                <img height="16" ng-src="https://www.google.com/s2/favicons?domain={{::media.domain}}">&nbsp;{{::media.title}}
+                <img height="16" ng-src="http://favicon.yandex.net/favicon/{{::media.domain}}">&nbsp;{{::media.title}}
               </label>
             </div>
           </div>

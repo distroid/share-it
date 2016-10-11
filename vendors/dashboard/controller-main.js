@@ -53,7 +53,14 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
             },
             'odnoklassniki': {
                 'domain'     : 'ok.ru',
-                'title'      : 'Ok.ru',
+                'title'      : 'Odnoklassniki',
+                'selected'   : true,
+                'active_tab' : false,
+                'options'    : {},
+            },
+            'tumblr': {
+                'domain'     : 'www.tumblr.com',
+                'title'      : 'Tumblr',
                 'selected'   : true,
                 'active_tab' : false,
                 'options'    : {},
@@ -105,6 +112,10 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 'text'  : {'value': '', 'title': 'Button text', 'placeholder': 'It replaces the default button text'},
                 'description' : {'value': '', 'title': 'Description', 'placeholder': 'It replaces the default description text'},
             },
+            'tumblr' : {
+                'title' : {'value': '', 'title': 'Page title', 'placeholder': 'The title of the page for a button'},
+                'text'  : {'value': '', 'title': 'Button text', 'placeholder': 'It replaces the default button text'},
+            },
         },
         'block_options'   : {},
         'service_options' : {},
@@ -119,7 +130,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
             {'value': 'minimal',       'title': 'Minimal'},
             {'value': 'transparent',   'title': 'Transparent'}
         ],
-        'button_theme': 'default',
+        'button_theme': 'minimal-color',
         'is_additional_options': false,
     };
 
@@ -271,7 +282,7 @@ angular.module('sharingButton').controller('mainController', ['$scope', function
                 }
                 styles[0].remove();
             }
-        }, 400);
+        }, 500);
     };
 
     $scope.$watch("sharing.button_theme", function() {
