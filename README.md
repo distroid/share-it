@@ -29,6 +29,7 @@ Add HTML code to your page
   <div class="google-plus"></div>
   <div class="mailru"></div>
   <div class="odnoklassniki"></div>
+  <div class="tumblr"></div>
   <div data-media="https://code-bit.com/social.png" class="pinterest"></div>
 </div>
 ```
