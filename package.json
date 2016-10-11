@@ -1,6 +1,6 @@
 {
   "name": "share-it",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simple JS library to create share buttons",
   "main": "lib/share-it.min.js",
   "dependencies": {
