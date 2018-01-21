@@ -6,12 +6,13 @@ window.ShareIt = class ShareIt
 
   # Basic button options
   options =
-    'url'          : window.location.href.replace(window.location.hash, ''),
-    'title'        : document.title,
-    'counters'     : true,
-    'titles'       : true,
-    'button_title' : 'Share to '
-    'scheme'       : window.location.protocol.replace(':', '')
+    'url'            : window.location.href.replace(window.location.hash, ''),
+    'title'          : document.title,
+    'counters'       : true,
+    'titles'         : true,
+    'window'         : false,
+    'button_title'   : 'Share to '
+    'scheme'         : window.location.protocol.replace(':', '')
 
   window.VK = {} unless window.VK?
   window.VK.Share =
@@ -206,9 +207,11 @@ window.ShareIt = class ShareIt
     # Create widget - button and icon
     element.innerHTML = '';
     if element.parentElement.dataset.titles == 'true' || options.titles && !element.parentElement.dataset.titles?
-      element.title   = element.getAttribute('title') || options.button_title + services[type]['title']
+      element.title = element.getAttribute('title') || options.button_title + services[type]['title']
     element.className += ' share-it-widget'
-    element.onclick   = () -> window.open(url);
+    windowOptions = @generateWindowOptions(element)
+    element.onclick = () ->
+      window.open(url, '', windowOptions);
     element.appendChild(img)
     element.appendChild(btn)
 
@@ -271,6 +274,17 @@ window.ShareIt = class ShareIt
 
     script.setAttribute('src', "#{counterUrl}&#{param}=#{type}_#{window.sharingButtons[type]}_callback")
     element.appendChild(script)
+
+  # Generate window options
+  generateWindowOptions: (element) ->
+    return '' unless options.window || element.parentElement.dataset.window == 'true'
+
+    width = 626
+    height = 436
+    top = screen.height / 2 - (width / 2)
+    left = screen.width / 2 - (height / 1.5)
+
+    "toolbar=0,status=0,width=#{width},height=#{height},top=#{top},left=#{left}"
 
   # Generate button counter
   createButtonCounter = (element, count) ->
