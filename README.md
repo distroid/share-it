@@ -61,6 +61,7 @@ Can be redefined for specific button
 ----------------|:------------------|:--------------------------------------------------|:----------------
 `url`           | string            | Page url                                          | window.location
 `counters`      | true \| false     | Use sharing counters                              | true
+`window`        | true \| false     | Open url in a popup                               | false
 `titles`        | true \| false     | Is add html attribute `title="Share to <social>"` | true
 `description`   | string            | Page description                                  | page title
 
