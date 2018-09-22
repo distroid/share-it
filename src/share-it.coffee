@@ -53,7 +53,7 @@ window.ShareIt = class ShareIt
       'getter'      : (type, element, counterUrl, url) ->
         ajax.get(counterUrl, [], services[type]['callback'], true, element: element)
       'callback'    : (response, opt) ->
-        response = JSON.parse(response)
+        response = JSON.parse(response || '{}')
         if response.share? && response.share.share_count?
           createButtonCounter(opt.element, response.share.share_count)
 
@@ -67,7 +67,7 @@ window.ShareIt = class ShareIt
       'getter'      : (type, element, counterUrl, url) ->
         ajax.get(counterUrl, [], services[type]['callback'], true, element: element)
       'callback'    : (response, opt) ->
-        response = JSON.parse(response)
+        response = JSON.parse(response || '{}')
         if typeof response.count != 'undefined'
           createButtonCounter(opt.element, response.count)
 
@@ -94,7 +94,7 @@ window.ShareIt = class ShareIt
         element.setAttribute('id', "#{type}-button-#{window.sharingButtons[type]}")
         ajax.post(services[type]['counter_url'], params, services[type]['callback'], true)
       'callback' : (response) ->
-        response = JSON.parse(response)
+        response = JSON.parse(response || '{}')
         return unless response.result.metadata.globalCounts.count?
         createButtonCounter(document.getElementById(response.id), response.result.metadata.globalCounts.count)
 

@@ -1,23 +1,29 @@
-var gulp   = require('gulp-param')(require('gulp'), process.argv);  // Gulp JS
-var concat = require('gulp-concat');                                // Files concat
-var uglify = require('gulp-uglify');                                // JS minifier
-var csso   = require('gulp-csso');                                  // CSS minifier
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 
-var js_app_path = [
-    './lib/share-it.js',
-];
+var paths = {
+  scripts: {
+    src: './lib/share-it.js',
+    dest: './lib/'
+  }
+};
 
-function js_app(asset_version)
-{
-    asset_version || (asset_version = '');
-    gulp.src(js_app_path)
-        .pipe(uglify({ mangle: false }))
-        .pipe(concat('share-it.min' + asset_version + '.js'))
-        .pipe(gulp.dest('./lib/'));
+function scripts() {
+  return gulp.src(paths.scripts.src, { sourcemaps: true })
+    .pipe(uglify())
+    .pipe(concat('share-it.min.js'))
+    .pipe(gulp.dest(paths.scripts.dest));
 }
 
-gulp.task('js_app',  function(asset_version) { js_app(asset_version); });
-gulp.task('watch', function () {
-    gulp.watch(js_app_path, ['js_app']);
-});
-gulp.task('default', ['js_app'])
+function watch() {
+  gulp.watch(paths.scripts.src, scripts);
+}
+
+exports.scripts = scripts;
+exports.watch = watch;
+
+var build = gulp.series(gulp.parallel(scripts));
+
+gulp.task('build', build);
+gulp.task('default', build);
